@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:href="@{/resources/css/cssStyle.css}" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+<header>
+
+
+
+</header>
+<a th:href="@{/service}">Back To Menu</a>
+
+<form  th:action="@{/service/delete}" novalidate="novalidate" th:method="post" style="width: 50% ;margin: 2px auto" th:object="${service}">
+    <input style="visibility: hidden" th:field = "*{idServices}" type="text" class="form-control" >
+    <div class="form-group">
+        <label >1.Name Service</label>
+        <input th:field = "*{fullName}" type="text" class="form-control" >
+    </div>
+    <div class="form-group">
+        <label >2.Area</label>
+        <input th:field = "*{area}" type="text" class="form-control"  >
+    </div>
+    <div class="form-group">
+        <label >3.Number Floot</label>
+        <input th:field = "*{numFloot}" type="text" class="form-control" >
+    </div>
+    <div class="form-group">
+        <label >4.Max Number</label>
+        <input th:field = "*{max_number}" type="text" class="form-control"  >
+    </div>
+    <div class="form-group">
+        <label >5.Rental Cost</label>
+        <input  th:field = "*{Rental_cost}" type="text" class="form-control"  >
+    </div><div class="form-group">
+    <label >6.Status Service</label>
+    <input   th:field = "*{statusServices}" type="text" class="form-control" >
+</div><div class="form-group">
+    <label >7.Type Custommer</label>
+    <!--    <input th:field="*{customerStyle.idCustommerStyle}" type="text">-->
+    <select th:field="*{typeServices.idTypeServices}" >
+        <option value="1">Villa</option>
+        <option value="2">House</option>
+        <option value="3">Room</option>
+    </select>
+    <label >7.Type Rent</label>
+    <select th:field="*{typeRent.idTypeRent}" >
+        <option value="1">House</option>
+        <option value="2">Day</option>
+        <option value="3">Month</option>
+        <option value="3">Year</option>
+    </select>
+</div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>View Person</h2>
+<p>
+    <a th:href="@{/}">Back To Menu</a>
+</p>
+<form>
+    <tr>
+        <td th:text="${person.getId()}"></td>
+        <td th:text="${person.getName()}"></td>
+        <td th:text="${person.getAddress()}"></td>
+    </tr>
+</form>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Edit Person</h2>
+<table border="1px">
+    <form th:action="@{/person/update}" novalidate="novalidate" th:object="${person}" method="post">
+        <lable>Name</lable>
+        <input type="text" th:field="*{name}"> <br>
+        <lable>Address</lable>
+        <input th:field="*{address}"> <br>
+        <input type="submit" value="edit">
+    </form>
+</table>
+</body>
+</html>

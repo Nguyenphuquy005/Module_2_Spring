@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:href="@{/resources/css/cssStyle.css}" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+<header>
+
+
+</header>
+<h1>ListServices</h1>
+
+<div style="display:  flex">
+    <div style="display:  flex">
+        <form th:action="@{/admin}"><button  type="submit" class="btn btn-primary btn-lg">Back To Menu</button></form>
+        <form th:action="@{/service/add}"><button  type="submit" class="btn btn-secondary btn-lg">Add new Customer</button></form>
+    </div>
+
+    <form style="padding-left: 32em" th:action="@{/service}" class="form-inline">
+        <div class="form-group mx-sm-3 mb-2">
+            <input type="text" class="form-control" name="name" placeholder="">
+        </div>
+        <button type="submit" class="btn btn-primary mb-2">Search</button>
+    </form>
+</div>
+<table class="table">
+    <thead class="thead-dark">
+    <tr>
+        <td scope="col">Id</td>
+        <td scope="col">Name Service</td>
+        <td scope="col">Area</td>
+        <td scope="col">Number Floot</td>
+        <td scope="col">Max_Number</td>
+        <td scope="col">Rental Cost</td>
+        <td scope="col">Status Service</td>
+        <td scope="col">Id Type Service</td>
+        <td scope="col">Id Type Rent</td>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="row: ${services}">
+        <td th:text="${row.idServices}" ></td>
+        <td th:text="${row.fullName}"></td>
+        <td th:text="${row.area}"></td>
+        <td th:text="${row.numFloot}"></td>
+        <td th:text="${row.max_number}"></td>
+        <td th:text="${row.Rental_cost}"></td>
+        <td th:text="${row.statusServices}"></td>
+        <td th:text="${row.typeServices.idTypeServices}"></td>
+        <td th:text="${row.typeRent.idTypeRent}"></td>
+        <td><a th:href="@{/service/{idServices}/edit(idServices=${row.idServices})}">Edit</a></td>
+        <td><a th:href="@{/service/{idServices}/delete(idServices=${row.idServices})}">Delete</a></td>
+        <td></td>
+    </tr>
+</table>
+
+<a th:href="@{'/service'(page=${services.number - 1},name=${name})}" th:if="${services.hasPrevious()}">Back</a>
+<span th:text="${services.number + 1}"></span>
+/<span th:text="${services.totalPages}"></span>
+<a th:href="@{'/service'(page=${services.number + 1},name=${name})}" th:if="${services.hasNext()}">Next</a>
+</body>
+</html>

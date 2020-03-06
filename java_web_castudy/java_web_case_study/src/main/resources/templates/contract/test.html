@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form  th:action="@{/contract/addnew}"
+       th:method="post" style="width: 50% ;margin: 2px auto" th:object="${newcontract}">
+
+
+    <div class="form-group">
+        <label >2.Daystart Contract</label>
+        <input th:field = "*{daystartContract}" type="text" class="form-control" name="daystart"  >
+        <p th:if="${#fields.hasErrors('daystartContract')}" th:errors = "*{daystartContract}" class="text-danger" ></p>
+
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</body>
+</html>

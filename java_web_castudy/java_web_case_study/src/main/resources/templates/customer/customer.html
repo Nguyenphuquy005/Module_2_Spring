@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:href="@{/resources/css/cssStyle.css}" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+<header>
+<!--    <img src="//img/img.png" alt="#">-->
+
+
+</header>
+<h1>ListCustomer</h1>
+<div style="display:  flex">
+<div style="display:  flex">
+<form th:action="@{/admin}"><button  type="submit" class="btn btn-primary btn-lg">Back To Menu</button></form>
+<form th:action="@{/customer/add}"><button  type="submit" class="btn btn-secondary btn-lg">Add new Customer</button></form>
+</div>
+
+<form style="padding-left: 32em" th:action="@{/customer}" class="form-inline">
+    <div class="form-group mx-sm-3 mb-2">
+        <input type="text" class="form-control" name="name" placeholder="">
+    </div>
+    <button type="submit" class="btn btn-primary mb-2">Search</button>
+</form>
+</div>
+<table class="table">
+    <thead class="thead-dark">
+    <tr>
+        <td scope="col">Id</td>
+        <td scope="col">Full Name</td>
+        <td scope="col">Birthday</td>
+        <td scope="col">Id Card</td>
+        <td scope="col">Phone Number</td>
+        <td scope="col">Email</td>
+        <td scope="col">Adress</td>
+        <td scope="col">Id_style</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="row: ${customer}">
+         <td style="display: flex" >KH: <p th:text="${row.idCustommer}"></p> </td>
+        <td th:text="${row.fullName}"></td>
+        <td th:text="${row.brithday}"></td>
+        <td th:text="${row.idCard}"></td>
+        <td th:text="${row.phoneNumber}"></td>
+        <td th:text="${row.email}"></td>
+        <td th:text="${row.adress}"></td>
+        <td th:text="${row.customerStyle.idCustommerStyle}"></td>
+        <td><a th:href="@{/customer/{idCustommer}/edit(idCustommer=${row.idCustommer})}">Edit</a></td>
+        <td><a th:href="@{/customer/{idCustommer}/delete(idCustommer=${row.idCustommer})}">Delete</a></td>
+        <td></td>
+    </tr>
+</table>
+
+<a th:href="@{'/customer'(page=${customer.number - 1},name=${name})}" th:if="${customer.hasPrevious()}">Back</a>
+<span th:text="${customer.number + 1}"></span>
+/<span th:text="${customer.totalPages}"></span>
+<a th:href="@{'/customer'(page=${customer.number + 1},name=${name})}" th:if="${customer.hasNext()}">Next</a>
+
+
+<form th:action="@{/customer/contract}"><button  type="submit" class="btn btn-secondary btn-lg">Customer Contract</button></form>
+</body>
+</html>

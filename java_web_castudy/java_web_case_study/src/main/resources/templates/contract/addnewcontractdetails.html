@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:href="@{/resources/css/cssStyle.css}" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+<header>
+
+
+
+</header>
+<a th:href="@{/admin}">Back To Menu</a>
+
+<form  th:action="@{/contract/addnewcontractdetails}" novalidate="novalidate"
+       th:method="post" style="width: 50% ;margin: 2px auto" th:object="${contractdetails}">
+
+
+    <div class="form-group">
+        <label >1.ID Contract</label>
+
+        <select th:field = "*{id_contract}" >
+            <option th:each="row: ${contract}" th:value="${row.idContract}" th:text="${row.idContract}"></option>
+        </select>
+
+    </div>
+    <div class="form-group">
+        <label >1.ID Accompained Contract</label>
+
+        <select th:field = "*{id_accompanied_services}" >
+            <option value="1">1</option>
+            <option value="2">2</option>
+        </select>
+
+    </div>
+    <div class="form-group">
+        <label >5.Amount</label>
+        <input  th:field = "*{amount}" type="text" class="form-control"  >
+        <p th:if="${#fields.hasErrors('amount')}" th:errors = "*{amount}" class="text-danger"></p>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+</body>
+</html>

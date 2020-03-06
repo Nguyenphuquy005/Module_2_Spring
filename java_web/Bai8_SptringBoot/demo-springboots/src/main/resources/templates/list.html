@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        h1 {
+            border: blueviolet 1px
+        }
+    </style>
+</head>
+<body>
+<h1>List Person </h1>
+<p>
+    <a th:href="@{/person/create}">Create Person</a>
+</p>
+<p th:text="${succes}"></p>
+<table border="1px">
+    <form action="" t>
+        <thead>
+        <tr>
+            <td>Name</td>
+            <td>Adress</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="row : ${listPerson}">
+            <td th:text="${row.getName()}"></td>
+            <td th:text="${row.getAddress()}"></td>
+            <td><a th:href="@{/person/{id}/edit(id=${row.getId()})}">Edit</a></td>
+            <td><a th:href="@{/person/{id}/delete(id=${row.getId()})}">Delete</a></td>
+            <td><a th:href="@{/person/{id}/view(id=${row.getId()})}">view</a></td>
+        </tr>
+        </tbody>
+    </form>
+</table>
+</body>
+</html>

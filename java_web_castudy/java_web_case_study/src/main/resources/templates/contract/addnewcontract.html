@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:href="@{/resources/css/cssStyle.css}" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $( function() {
+            $("#daystartContract").datepicker({
+                dateFormat: "dd/mm/yy"
+            });
+        });
+    </script>
+    <script>
+        $( function() {
+            $("#dayendContract").datepicker({
+                dateFormat: "dd/mm/yy"
+            });
+        });
+    </script>
+</head>
+
+<body>
+<header>
+
+
+
+</header>
+<a th:href="@{/admin}">Back To Menu</a>
+<h2 th:if="${quy}" th:text="${quy}"></h2>
+
+<form  th:action="@{/contract/addnew}"
+       th:method="post" style="width: 50% ;margin: 2px auto" th:object="${newcontract}">
+
+
+    <div class="form-group">
+        <label >1.Daystart Contract</label>
+
+
+        <p th:if="${#fields.hasErrors('daystartContract')}" th:errors = "*{daystartContract}" class="text-danger" ></p>
+        <input th:field = "*{daystartContract}" type="text" class="form-control" name="daystart"  >
+
+
+    </div>
+
+    <div class="form-group">
+        <label >2.Dayend Contract</label>
+        <p th:if="${#fields.hasErrors('dayendContract')}" th:errors="*{dayendContract}" class="text-danger"></p>
+        <input th:field = "*{dayendContract}" type="text" class="form-control" name="dayend" >
+         <p th:if="${error}" th:text="${error}" class="text-danger"></p>
+    </div>
+    <div class="form-group">
+        <label >3.Deposits</label>
+        <input th:field = "*{deposits}" type="text" class="form-control"  >
+    </div>
+    <div class="form-group">
+        <label >4.Total Money</label>
+        <input  th:field = "*{totalMoney}" type="text" class="form-control"  >
+    </div>
+    <div class="form-group">
+    <label >5.Id Customer</label>
+    <select th:field = "*{customer.idCustommer}"   >
+        <option th:each="row : ${customer}" th:value="${row.idCustommer}" th:text="${row.fullName}"></option>
+    </select>
+</div>
+
+
+    <div class="form-group">
+    <label >6.Id Service</label>
+        <select th:field = "*{services.idServices}"  >
+            <option th:each=" row: ${service}"  th:value="${row.idServices}" th:text="${row.fullName}"></option>
+
+        </select>
+
+</div>
+    <div class="form-group">
+    <label >7.Id Employee</label>
+        <select th:field = "*{employee.idEmployee}"  >
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+</div>
+
+
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<!--/*@thymesVar id="date" type="com"*/-->
+
+</body>
+</html>

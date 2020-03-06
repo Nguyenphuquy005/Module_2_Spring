@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:href="@{/resources/css/cssStyle.css}" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+<header>
+    <img src="//static/img/img.png" alt="#">
+
+</header>
+<h1>ListCustomer in Contract</h1>
+<a th:href="@{/customer}">Back To Menu</a>
+
+
+<table class="table">
+    <thead class="thead-dark">
+    <tr>
+        <td scope="col">Id</td>
+        <td scope="col">Full Name</td>
+        <td scope="col">Birthday</td>
+        <td scope="col">Id Card</td>
+        <td scope="col">Phone Number</td>
+        <td scope="col">Email</td>
+        <td scope="col">Adress</td>
+        <td scope="col">Id_style</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="row: ${contract}">
+        <td style="display: flex" >KH: <p th:text="${row.idCustommer}"></p> </td>
+        <td th:text="${row.fullName}"></td>
+        <td th:text="${row.brithday}"></td>
+        <td th:text="${row.idCard}"></td>
+        <td th:text="${row.phoneNumber}"></td>
+        <td th:text="${row.email}"></td>
+        <td th:text="${row.adress}"></td>
+        <td th:text="${row.customerStyle.idCustommerStyle}"></td>
+
+<!--    <tr th:each="con : ${contractcontract}">-->
+<!--        /*@thymesVar id="contracts" type="com"*/-->
+<!--        <td th:text="${con.idContract}"></td>-->
+<!--    </tr>-->
+
+
+    </tr>
+    </tbody>
+</table>
+
+
+
+</body>
+</html>

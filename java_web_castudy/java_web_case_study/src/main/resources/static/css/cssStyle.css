@@ -1,0 +1,22 @@
+body{
+    margin: 0px auto;
+}
+header{
+    display: flex;
+    background-color: blanchedalmond;
+         height: 7em;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+header img {
+    padding-top: 1em;
+    height: 6em;
+    width: 12em;
+}
+
+main {
+    display: flex;
+}

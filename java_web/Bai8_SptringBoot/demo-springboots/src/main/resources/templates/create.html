@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Add New Person</h3>
+<p>
+    <a th:href="@{/}">Back To Menu</a>
+</p>
+<table border="1px">
+    <form th:action="@{/person/create}" th:method="post" th:object="${addPerson}" novalidate="novalidate">
+        <!--        <lable>id</lable>-->
+        <!--        <input type="text" th:filed = "*{id}">-->
+        <lable>Name</lable>
+        <input type="text" th:field="*{name}">
+        <lable>Address</lable>
+        <input type="text" th:field="*{address}">
+        <input type="submit" value="submit">
+    </form>
+</table>
+</body>
+</html>

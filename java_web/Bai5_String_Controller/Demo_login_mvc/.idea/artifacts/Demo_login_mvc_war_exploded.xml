@@ -1,0 +1,17 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="Demo_login_mvc:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/Demo_login_mvc_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="Demo_login_mvc/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="Demo_login_mvc" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Spring-5.2.3.RELEASE" />
+          <element id="library" level="project" name="Spring MVC-5.2.3.RELEASE" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

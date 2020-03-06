@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="arbitrary_fen:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/arbitrary_fen_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="arbitrary_fen/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="arbitrary_fen" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

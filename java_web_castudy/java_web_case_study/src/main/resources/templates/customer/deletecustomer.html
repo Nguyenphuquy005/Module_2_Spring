@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:href="@{/resources/css/cssStyle.css}" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script>
+        function Delete() {
+
+            confirm("you candelete")
+        }
+    </script>
+</head>
+
+<body>
+<header>
+    <img src="/static/img/img.png">
+
+</header>
+<a th:href="@{/customer/}">Back To Menu</a>
+<form th:action="@{/customer/delete}" novalidate="novalidate" th:method="post" style="width: 50%" th:object="${customer}">
+    <div class="form-group">
+
+        <input  style="visibility: hidden" th:field = "*{idCustommer}" type="text"  >
+    </div>
+    <div class="form-group">
+        <label >1.Full Name</label>
+        <input th:field = "*{fullName}" type="text" class="form-control" >
+    </div>
+    <div class="form-group">
+        <label >2.Birthday</label>
+        <input th:field = "*{brithday}" type="text" class="form-control"  >
+    </div>
+    <div class="form-group">
+        <label >3.Id Card</label>
+        <input th:field = "*{idCard}" type="text" class="form-control" >
+    </div>
+    <div class="form-group">
+        <label >4.Phone Number</label>
+        <input th:field = "*{phoneNumber}" type="text" class="form-control"  >
+    </div>
+    <div class="form-group">
+        <label >5.Email</label>
+        <input  th:field = "*{email}" type="text" class="form-control"  >
+    </div><div class="form-group">
+    <label >6.Address</label>
+    <input   th:field = "*{adress}" type="text" class="form-control" >
+</div><div class="form-group">
+    <label >7.Type_Custommer</label>
+    <input th:field="*{customerStyle.idCustommerStyle}" type="text">
+    </select>
+</div>
+
+    <button onclick="Delete()" type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+</body>
+</html>
